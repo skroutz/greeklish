@@ -1,6 +1,6 @@
 # Greeklish
 
-TODO: Write a gem description
+Generate greeklish forms from Greek words.
 
 ## Installation
 
@@ -20,7 +20,42 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Obtain an instance of `GreeklishConverter` as follows:
+
+```ruby
+converter = Greeklish.converter(max_expansions: 2,
+                                generate_greek_variants: false)
+
+greeklish_words = converter.convert('ομπρελα') # => ["omprela", "obrela"]
+
+```
+
+The option `max_expansions` denotes the maximum greeklish expansions for
+each greek word, i.e:
+
+```ruby
+converter = Greeklish.converter(max_expansions: 4,
+                                generate_greek_variants: false)
+
+converter.convert('αυτοκινητο') # =>
+    ["autokinhto", "aftokinhto", "avtokinhto", "aytokinhto"]
+```
+
+The option `generate_greek_variants` denotes if greek variants should
+be generated, i.e:
+
+```ruby
+converter = Greeklish.converter(max_expansions: 2,
+                                generate_greek_variants: true)
+
+converter.convert('αμαξι') # =>
+    ["amaksi", "amaxi", "amaksiou", "amaxiou", "amaksia", "amaxia",
+     "amaksiwn", "amaxiwn"]
+```
+
+## Credits
+
+Based on: [elasticsearch-analysis-greeklish](https://github.com/skroutz/elasticsearch-analysis-greeklish)
 
 ## Contributing
 
