@@ -132,10 +132,10 @@ module Greeklish
 
         convert_strings.each do |convert_string|
           per_word_greeklish.each do |token|
+            if (new_tokens.size >= max_expansions)
+              break
+            end
             new_tokens << "#{token}#{convert_string}"
-          end
-          if (per_word_greeklish.size >= max_expansions)
-            break
           end
         end
 
