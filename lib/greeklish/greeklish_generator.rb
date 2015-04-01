@@ -57,14 +57,6 @@ module Greeklish
     # list is returned to the filter.
     attr_reader :greeklish_list
 
-    # Input token converted into String.
-    attr_reader :input_token
-
-    # Input token converted into String without substitutions.
-    attr_reader :initial_token
-
-    attr_reader :words
-
     def initialize(max_expansions)
       @max_expansions = max_expansions
       @greeklish_list = []
