@@ -35,7 +35,7 @@ describe 'GreeklishConverter' do
     converter = Greeklish::GreeklishConverter.new(max_expansions, generate_greek_variants)
 
     invalid_words.each do |invalid_word|
-      @greeklish_words = converter.convert(invalid_word.split(//), invalid_word.length)
+      @greeklish_words = converter.convert(invalid_word)
       expect(@greeklish_words.nil?).to eq(true)
     end
   end
@@ -44,8 +44,7 @@ describe 'GreeklishConverter' do
     converter = Greeklish::GreeklishConverter.new(max_expansions, generate_greek_variants)
 
     greek_words.each_with_index do |word, i|
-      @greeklish_words = converter.convert(greek_words[i].split(//),
-                                          greek_words[i].length)
+      @greeklish_words = converter.convert(greek_words[i])
       populate_converted_strings_list
 
       expect(@greeklish_words.empty?).to eq(false)
@@ -61,8 +60,7 @@ describe 'GreeklishConverter' do
     generate_greek_variants = false
     converter = Greeklish::GreeklishConverter.new(new_max_expansions, generate_greek_variants)
 
-    @greeklish_words = converter.convert(greek_words[0].split(//),
-                                        greek_words[0].length)
+    @greeklish_words = converter.convert(greek_words[0])
 
     populate_converted_strings_list()
 
@@ -82,8 +80,7 @@ describe 'GreeklishConverter' do
     generate_greek_variants = false
     converter = Greeklish::GreeklishConverter.new(new_max_expansions, generate_greek_variants)
 
-    @greeklish_words = converter.convert(greek_words[0].split(//),
-                                       greek_words[0].length)
+    @greeklish_words = converter.convert(greek_words[0])
 
     populate_converted_strings_list()
 

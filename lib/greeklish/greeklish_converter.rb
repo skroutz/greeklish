@@ -43,21 +43,18 @@ module Greeklish
     # @param input_token the Greek token
     # @param token_length the length of the input token
     # @return A list of the generated strings
-    def convert(input_token, token_length)
-      # Convert to string in order to pass it to the reverse stemmer.
-      token_string = input_token.join
-
+    def convert(input_token)
       # Is this a Greek word?
-      if (!identify_greek_word(token_string))
+      if (!identify_greek_word(input_token))
         return nil
       end
 
       # if generating greek variants is on
       if (generate_greek_variants)
         # generate them
-        @greek_words = reverse_stemmer.generate_greek_variants(token_string)
+        @greek_words = reverse_stemmer.generate_greek_variants(input_token)
       else
-        @greek_words << token_string
+        @greek_words << input_token
       end
 
       # if there are greek words
