@@ -4,5 +4,8 @@ require "greeklish/greek_reverse_stemmer"
 require "greeklish/greeklish_converter"
 
 module Greeklish
-  # Your code goes here...
+  def self.converter(options={})
+    GreeklishConverter.new(options[:max_expansions],
+                           options[:generate_greek_variants])
+  end
 end
