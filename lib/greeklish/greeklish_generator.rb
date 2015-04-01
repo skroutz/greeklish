@@ -92,11 +92,6 @@ module Greeklish
 
         initial_token = greek_word
 
-        # Allocate space that is twice the length of the input token
-        # in order to cover worst case scenario where each Greek character
-        # is replaced by two latin characters.
-        allocated_space = 2 * greek_word.length
-
         digraphs.each_key do |key|
           greek_word = greek_word.gsub(key, digraphs[key])
         end
@@ -108,7 +103,7 @@ module Greeklish
         # Iterate through the characters of the token and generate
         # greeklish words.
         input_token.each do |greek_char|
-          add_character(conversions[greek_char], allocated_space)
+          add_character(conversions[greek_char])
         end
 
         @greeklish_list << per_word_greeklish.flatten
@@ -122,11 +117,9 @@ module Greeklish
     # latin characters, a new token is generated.
     #
     # @param convert_strings the latin characters that will be added to the tokens
-    # @param buffer_size The size of the buffer that will be allocated in case of
-    #  new result.
     private
 
-    def add_character(convert_strings, buffer_size)
+    def add_character(convert_strings)
       if (per_word_greeklish.empty?)
         convert_strings.each do |convert_string|
           if (per_word_greeklish.size >= max_expansions)
