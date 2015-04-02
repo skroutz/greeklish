@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Greeklish::VERSION
   spec.authors       = ["Petros Markou"]
   spec.email         = ["markoupetr@skroutz.gr"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Generates greeklish forms}
+  spec.description   = %q{Configurable generator of Greek words to greeklish forms.}
+  spec.homepage      = "https://github.com/skroutz/greeklish"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
