@@ -44,6 +44,10 @@ module Greeklish
     # @param token_length the length of the input token
     # @return A list of the generated strings
     def convert(input_token)
+      if (input_token[-1, 1] == "ς")
+        input_token[-1, 1] = "σ"
+      end
+
       # Is this a Greek word?
       if (!identify_greek_word(input_token))
         return nil

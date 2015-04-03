@@ -7,7 +7,7 @@ describe 'GreeklishConverter' do
 
   # a sample of greek words to generate their greeklish
   # counterparts.
-  greek_words = ["αυτοκινητο", "ομπρελα", "ξεσκεπαστοσ"]
+  greek_words = ["αυτοκινητο", "ομπρελα", "ξεσκεπαστοσ", "ομορφος"]
 
   # the greeklish counterparts that should be generated from the greek words.
   generated_greeklish_words = [
@@ -15,11 +15,16 @@ describe 'GreeklishConverter' do
      "autokinito", "aftokinito", "avtokinito", "aytokinito",
      "autokinhtwn", "aftokinhta", "avtokinhta", "aytokinhtwn"],
     ["omprela", "obrela", "ompreles", "obrelwn", "obreles", "omprelas"],
-    ["kseskepastos", "xeskepastos", "kseskepastou", "xeskepastwn", "kseskepastoi"]
+    ["kseskepastos", "xeskepastos", "kseskepastou", "xeskepastwn", "kseskepastoi"],
+    ["omorfos", "omorphos", "omorfh", "omorphh", "omorfi", "omorphi", "omorfous",
+     "omorphous", "omorfoys", "omorphoys", "omorfus", "omorphus", "omorfou",
+     "omorphou", "omorfoy", "omorphoy", "omorfu", "omorphu", "omorfoi", "omorphoi",
+     "omorfi", "omorphi", "omorfwn", "omorphwn", "omorfon", "omorphon", "omorfvn",
+     "omorphvn"]
   ]
 
   # these words should not be processed by the converter.
-  invalid_words = ["mobile", "αυριο64", "καλάθι", "ΣΠιτι", "ομορφος" ]
+  invalid_words = ["mobile", "αυριο64", "καλάθι", "ΣΠιτι"]
 
   before(:each) do
     @greeklish_words = []
